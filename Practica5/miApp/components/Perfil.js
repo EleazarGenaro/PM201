@@ -1,32 +1,48 @@
-import {View, Text, Button} from 'react-native';
-import React, {useState} from 'react';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
- export const Perfil = ({nombre, carrera, materia, cuatrimestre}) => {
-    const[mostrar, setMostrar] = useState(false);
-    return(
-        <View>  
-            <Text>{nombre}</Text>
+export const Perfil = ({ nombre, carrera, materia, cuatrimestre, style }) => {
+    const [mostrar, setMostrar] = useState(false);
 
-            {mostrar &&
-            <>
-            <Text>{carrera}</Text>
-            <Text>{materia}</Text>
-            <Text>{cuatrimestre}</Text>
-            </>
-            }
+    return (
+        <View style={[estilos.tarjeta, style]}>
+            <Text style={estilos.nombre}>{nombre}</Text>
 
-            <Button title="Ver Perfil" onPress={() => setMostrar(!mostrar)}/>
+            {mostrar && (
+                <>
+                    <Text style={estilos.carrera}>{carrera}</Text>
+                    <Text style={estilos.otroTexto}>{materia}</Text>
+                    <Text style={estilos.otroTexto}>{cuatrimestre}</Text>
+                </>
+            )}
+
+            <Button
+                title="Ver Perfil"
+                onPress={() => setMostrar(!mostrar)}
+            />
         </View>
     );
- }
+};
 
-/* export const Perfil= (props) => {
-    return(
-        <View>  
-            <Text>{props.nombre}</Text>
-            <Text>{props.carrera}</Text>
-            <Text>{props.materia}</Text>
-            <Text>{props.cuatrimestre}</Text>
-        </View>
-    );
-} */
+const estilos = StyleSheet.create({
+    nombre: {
+        fontSize: 24,
+        fontWeight: '600',
+        textTransform: 'uppercase',
+    },
+    carrera: {
+        fontSize: 18,
+        color: 'gray',
+        fontFamily: 'Roboto',
+    },
+    otroTexto: {
+        fontSize: 16,
+        fontFamily: 'Courier',
+        fontStyle: 'italic',
+    },
+    tarjeta: {
+        borderWidth: 2,
+        padding: 10,
+        margin: 10,
+    },
+});

@@ -1,12 +1,14 @@
 //Zona 1: Importaciones de archivos y Componentes
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import MenuScreen from './Screens/MenuScreen';
 
 //Zona 2: Main - componentes 
 export default function App() {
   return (
-    <MenuScreen />
+    <view>
+        <text>Aquí va la primera practica de Componentes Nativos</text>
+    </view>
+    
   );
 }
 
@@ -19,5 +21,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
-
 });
