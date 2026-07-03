@@ -16,12 +16,12 @@ export default function App() {
   };
 
   return (
-    
+
     <SafeAreaView style={{ flex: 1 }}>
 
       <Button title="Agregar tarea" onPress={agregarTarea} />
 
-      <ScrollView contentContainerStyle={{ padding: 20}}>
+      <ScrollView contentContainerStyle={{ padding: 30}}>
         {tareas.map((tarea, index) => (
           <View key={index} style={{ marginBottom: 10, padding: 15, backgroundColor: '#ddd'}}>
             <Text>{tarea}</Text>
