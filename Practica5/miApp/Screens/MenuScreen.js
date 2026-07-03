@@ -1,16 +1,18 @@
-//Zona 1: Importaciones de archivos y Componentes
+// Zona 1: Importaciones de archivos y Componentes
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import React, { useState } from 'react';
+
 import TarjetasScreen from './TarjetasScreen';
 import Componente1 from './Componente1';
 import ScrollView_SafeAreaView from './ScrollView_SafeAreaView';
-import Pressable from './Pressable';
+import PressableScreen from './Pressable';
 import SwitchScreen from './SwitchScreen';
 import FlatListScreen from './FlatListScreen';
 import SectionListScreen from './SectionListScreen';
+import ComponentesNativosScreen from './ComponentesNativosScreen';
 
-//Zona 2: Main - componentes
+// Zona 2: Main - componentes
 export default function App() {
   const [screen, setScreen] = useState('menu');
 
@@ -25,7 +27,7 @@ export default function App() {
       return <ScrollView_SafeAreaView />;
 
     case 'Pressable':
-      return <Pressable />;
+      return <PressableScreen />;
 
     case 'switch':
       return <SwitchScreen />;
@@ -35,6 +37,9 @@ export default function App() {
 
     case 'SectionListScreen':
       return <SectionListScreen />;
+
+    case 'ComponentesNativosScreen':
+      return <ComponentesNativosScreen />;
 
     case 'menu':
     default:
@@ -92,12 +97,19 @@ export default function App() {
               onPress={() => setScreen('SectionListScreen')}
             />
           </View>
+
+          <View style={styles.boton}>
+            <Button
+              title="Practica Componentes Nativos"
+              onPress={() => setScreen('ComponentesNativosScreen')}
+            />
+          </View>
         </View>
       );
   }
 }
 
-//Zona 3: Estilos
+// Zona 3: Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
